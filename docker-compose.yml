@@ -1,10 +1,16 @@
 services:
-  mysql:
-    image:
-    container_name:
+  zabbix:
+    image: zabbix/zabbix-server-mysql
+    container_name: zabbix
     ports:
-    volumes:
+      - 10080:80
+      - 10051:10051
     environment:
+      - MYSQL_USER: zabbix
+      - MYSQL_PASSWORD: saoindrg:kjaprhrf
+      - DB_SERVER_PORT: 3306
+      - DB_SERVER_HOST: mysql
+
 networks:
   defaults:
     external:
