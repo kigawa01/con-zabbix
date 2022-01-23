@@ -16,7 +16,7 @@ services:
     ports:
       - 9001:9000
       - 20080:80
-      - 10053:10053
+      - 10053:8080
     restart: always
     environment:
       - ZBX_ALLOWEDIP=0.0.0.0/0
