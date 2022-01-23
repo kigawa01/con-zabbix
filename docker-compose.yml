@@ -1,7 +1,7 @@
 services:
   zabbix:
     image: zabbix/zabbix-server-mysql
-    container_name: zabbix
+    container_name: zabbixserver
     ports:
       - 10080:80
       - 10051:10051
