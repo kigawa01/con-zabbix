@@ -14,7 +14,7 @@ services:
     image: zabbix/zabbix-web-nginx-mysql
     container_name: zabbixweb
     ports:
-      - 10080:80
+      - 9001:9000
     restart: always
     environment:
       - ZBX_SERVER_HOST=192.168.0.15
