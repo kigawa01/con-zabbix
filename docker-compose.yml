@@ -9,7 +9,7 @@ services:
       - MYSQL_USER=zabbix
       - MYSQL_PASSWORD=saoindrg:kjaprhrf
       - DB_SERVER_PORT=3306
-      - DB_SERVER_HOST=mysql
+      - DB_SERVER_HOST=192.168.0.15
 networks:
   defaults:
     external:
