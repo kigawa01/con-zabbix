@@ -1,0 +1,11 @@
+services:
+  mysql:
+    image:
+    container_name:
+    ports:
+    volumes:
+    environment:
+networks:
+  defaults:
+    external:
+      name: bridge
