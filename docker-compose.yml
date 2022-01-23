@@ -10,7 +10,6 @@ services:
       - MYSQL_PASSWORD: saoindrg:kjaprhrf
       - DB_SERVER_PORT: 3306
       - DB_SERVER_HOST: mysql
-
 networks:
   defaults:
     external:
