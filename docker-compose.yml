@@ -43,5 +43,3 @@ networks:
   defaults:
     external:
       name: bridge
-  host:
-    external: true
