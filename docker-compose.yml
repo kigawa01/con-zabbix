@@ -13,7 +13,7 @@ services:
     restart: always
     networks:
       fixed_compose_network:
-        - ipv4_address: 192.168.1.15
+        ipv4_address: 192.168.1.15
   zabbixweb:
     image: zabbix/zabbix-web-nginx-mysql
     container_name: zabbixweb
