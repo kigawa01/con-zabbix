@@ -44,5 +44,4 @@ networks:
     external:
       name: bridge
   host:
-    external:
-      name: host
+    external: true
