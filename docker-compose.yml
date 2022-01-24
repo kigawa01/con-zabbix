@@ -37,6 +37,7 @@ services:
     privileged: true
     depends_on:
       - zabbixserver
+    restart: always
 networks:
   defaults:
     external:
