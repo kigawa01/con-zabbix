@@ -32,8 +32,8 @@ services:
       - 10050:10050
     environment:
       - ZBX_HOSTNAME=kvm_important
-      - ZBX_SERVER_HOST=192.168.0.15
-      - ZBX_ACTIVESERVERS=0.0.0.0
+      - ZBX_SERVER_HOST=0.0.0.0
+      - ZBX_ACTIVESERVERS=192.168.0.15
     privileged: true
     depends_on:
       - zabbixserver
