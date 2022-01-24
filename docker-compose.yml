@@ -11,9 +11,6 @@ services:
       - DB_SERVER_HOST=192.168.0.15
       - ZBX_LISTENIP=0.0.0.0
     restart: always
-    networks:
-      defaults:
-        ipv4_address: 192.168.1.15
   zabbixweb:
     image: zabbix/zabbix-web-nginx-mysql
     container_name: zabbixweb
@@ -37,6 +34,7 @@ services:
       - ZBX_HOSTNAME=kvm_important
       - ZBX_SERVER_HOST=192.168.0.15
       - ZBX_SERVER_ACTIVE=192.168.1.15
+      - ZBX_LISTENIP=0.0.0.0
     privileged: true
     depends_on:
       - zabbixserver
