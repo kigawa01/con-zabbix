@@ -34,7 +34,6 @@ services:
     environment:
       - ZBX_HOSTNAME=kvm_important
       - ZBX_SERVER_HOST=192.168.0.15
-      - ZBX_ACTIVESERVERS=192.168.0.15
     privileged: true
     depends_on:
       - zabbixserver
