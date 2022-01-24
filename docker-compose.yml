@@ -11,6 +11,8 @@ services:
       - DB_SERVER_HOST=192.168.0.15
       - ZBX_LISTENIP=0.0.0.0
     restart: always
+    networks:
+      - host
   zabbixweb:
     image: zabbix/zabbix-web-nginx-mysql
     container_name: zabbixweb
@@ -41,3 +43,6 @@ networks:
   defaults:
     external:
       name: bridge
+  host:
+    external:
+      name: host
