@@ -12,7 +12,7 @@ services:
       - ZBX_LISTENIP=0.0.0.0
     restart: always
     networks:
-      - host
+      - server
   zabbixweb:
     image: zabbix/zabbix-web-nginx-mysql
     container_name: zabbixweb
@@ -43,3 +43,5 @@ networks:
   defaults:
     external:
       name: bridge
+  server:
+    external: true
