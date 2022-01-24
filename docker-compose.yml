@@ -12,7 +12,7 @@ services:
       - ZBX_LISTENIP=0.0.0.0
     restart: always
     networks:
-      fixed_compose_network:
+      zabbix:
         ipv4_address: 192.168.1.15
   zabbixweb:
     image: zabbix/zabbix-web-nginx-mysql
@@ -41,6 +41,8 @@ services:
     depends_on:
       - zabbixserver
 networks:
-  defaults:
-    external:
-      name: bridge
+  zabbix:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
