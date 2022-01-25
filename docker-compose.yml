@@ -6,12 +6,14 @@ services:
       - 10051:10051
     environment:
       - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD=saoindrg:kjaprhrf
+      - MYSQL_PASSWORD_FILE=/run/secrets/mysql_password
       - DB_SERVER_PORT=3306
       - DB_SERVER_HOST=192.168.0.15
       - ZBX_LISTENIP=0.0.0.0
     restart: always
     network_mode: "host"
+    secrets:
+      - mysql_password
   zabbixweb:
     image: zabbix/zabbix-web-nginx-mysql
     container_name: zabbixweb
@@ -25,7 +27,9 @@ services:
       - DB_SERVER_HOST=192.168.0.15
       - DB_SERVER_PORT=3306
       - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD=saoindrg:kjaprhrf
+      - MYSQL_PASSWORD_FILE=/run/secrets/mysql_password
+    secrets:
+      - mysql_password
   zabbix-agent:
     image: zabbix/zabbix-agent
     container_name: zabbixagent
@@ -42,3 +46,6 @@ networks:
   defaults:
     external:
       name: bridge
+secrets:
+  mysql_password:
+    file: mysql_password
