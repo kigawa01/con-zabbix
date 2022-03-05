@@ -1,51 +1,11 @@
 services:
-  zabbixserver:
-    image: zabbix/zabbix-server-mysql
-    container_name: zabbixserver
-    ports:
-      - 10051:10051
-    environment:
-      - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD_FILE=/run/secrets/mysql_password
-      - DB_SERVER_PORT=3306
-      - DB_SERVER_HOST=192.168.0.18
-      - ZBX_LISTENIP=0.0.0.0
-    restart: always
-    network_mode: "host"
-    secrets:
-      - mysql_password
-  zabbixweb:
-    image: zabbix/zabbix-web-nginx-mysql
-    container_name: zabbixweb
-    ports:
-      - 10053:8080
-    restart: always
-    environment:
-      - ZBX_ALLOWEDIP=0.0.0.0/0
-      - ZBX_SERVER_HOST=192.168.0.15
-      - ZBX_SERVER_PORT=10051
-      - DB_SERVER_HOST=192.168.0.18
-      - DB_SERVER_PORT=3306
-      - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD_FILE=/run/secrets/mysql_password
-    secrets:
-      - mysql_password
   zabbix-agent:
     image: zabbix/zabbix-agent
     container_name: zabbixagent
     ports:
       - 10050:10050
     environment:
-      - ZBX_HOSTNAME=kvm_important
+      - ZBX_HOSTNAME=kvm_tatami
       - ZBX_SERVER_HOST=192.168.0.15
     privileged: true
-    depends_on:
-      - zabbixserver
     restart: always
-networks:
-  defaults:
-    external:
-      name: bridge
-secrets:
-  mysql_password:
-    file: mysql_password
