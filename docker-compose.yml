@@ -5,7 +5,7 @@ services:
     ports:
       - 10050:10050
     environment:
-      - ZBX_HOSTNAME=kvm_tatami
+      - ZBX_HOSTNAME=mc
       - ZBX_SERVER_HOST=192.168.0.15
     privileged: true
     restart: always
